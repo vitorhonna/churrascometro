@@ -2,7 +2,7 @@
 
 <br>
 <div align="center">
-  <a href="https://vitorhonna.github.io/rocketseat-maratona-devfinances/">
+  <a href="#">
     <img alt="churrascômetro" src="#" width="80%">
   </a>
   <br>
