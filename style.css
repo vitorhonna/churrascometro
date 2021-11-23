@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1.2rem;
 }
 
 body {
@@ -139,7 +138,7 @@ button.submit:hover {
 
 footer {
     margin-top: auto;
-    margin-bottom: 15px;
+    padding: 10px 0;
     color: gray;
     font-size: 0.8rem;
 }
