@@ -2,15 +2,15 @@
 
 <br>
 <div align="center">
-  <a href="#">
-    <img alt="churrascômetro" src="#" width="80%">
+  <a href="https://vitorhonna.github.io/churrascometro/">
+    <img alt="churrascômetro" src="./images/churrascometro.png" width="80%">
   </a>
   <br>
   Projeto de calculadora de quantidades de insumos para um churrasco.  <br>
   Desenvolvido durante o curso do Programador BR.
   <br><br>
   
-  [Clique aqui](#) para ver o projeto pronto e funcionando 🥰
+  [Clique aqui](https://vitorhonna.github.io/churrascometro/) para ver o projeto pronto e funcionando 🥰
   
 </div>
 
@@ -24,9 +24,19 @@
 
 ## 📚 Sobre o Projeto
 
-- a
-- b
+Calcula a quantidade de insumos para um churrasco com base no número de adultos, crianças e horas de duração. Segue a seguinte regra:
 
+Se o churrasco durar menos de 6h:
+- 🥩 400g de carne por pessoa
+- 🍺 1.2 litros de cerveja por adulto
+- 🥤 1.0 litro de refrigerante por pessoa
+- Crianças contam como 0.5 pessoa
+
+Se o churrasco durar mais de 6h:
+- 🥩 650g de carne por pessoa
+- 🍺 2.0 litros de cerveja por adulto
+- 🥤 1.5 litros de refrigerante por pessoa
+- Crianças contam como 0.5 pessoa
 
 ## 📑 Licença
 

@@ -8,7 +8,7 @@
 body {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    background-image: url(./images/bg4-2.jpg);
+    background-image: url(./images/bg-2.jpg);
     background-size: cover;
 
     display: flex;
@@ -152,7 +152,7 @@ footer a {
 
 @media (min-width: 768px) {
     body {
-        background-image: url(./images/bg4-1.jpg);
+        background-image: url(./images/bg-1.jpg);
     }
 
     div.buttons {
