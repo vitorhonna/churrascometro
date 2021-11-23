@@ -1,9 +1,3 @@
-// 400g/p | 6+ 650
-// 1200ml/p | 6+ 2000
-// 1000ml/p | 6+ 1500
-
-// criancas = 0.5p
-
 const DOM = {
     carne: document.querySelector(".container.results ul").children[0],
     cerveja: document.querySelector(".container.results ul").children[1],
@@ -14,29 +8,45 @@ const DOM = {
         DOM.cerveja.textContent = `🍺 ${cerveja} litros de cerveja`;
         DOM.refrigerante.textContent = `🥤 ${refrigerante} litros de refrigerante`;
     },
+
+    showResults() {
+        const results = document.querySelector(".container.results");
+        results.style.display = "block";
+    },
 };
 
-function calculateAmounts(adults, children, hours) {
-    if (adults < 0 || children < 0 || hours < 0) {
-        throw new Error("Por favor, entre um valor positivo");
-    }
+const Utils = {
+    calculateAmounts(adults, children, hours) {
+        adults = Number(adults);
+        children = Number(children);
+        hours = Number(hours);
 
-    if (hours < 6) {
-        let carne, cerveja, refrigerante;
-        carne = (adults + children * 0.5) * 0.4;
-        cerveja = adults * 1.2;
-        refrigerante = adults + children * 0.5;
-        console.log(adults, children, hours);
-        console.log(carne, cerveja, refrigerante);
-        DOM.updateAmounts(carne, cerveja, refrigerante);
-    } else {
-        let carne, cerveja, refrigerante;
-        carne = (adults + children * 0.5) * 0.4;
-        cerveja = adults * 1.2;
-        refrigerante = adults + children * 0.5;
-        DOM.updateAmounts(carne, cerveja, refrigerante);
-    }
-}
+        if (isNaN(adults) || isNaN(children) || isNaN(hours)) {
+            throw new Error("Por favor, entre um valor numérico");
+        }
+
+        if (adults < 0 || children < 0 || hours < 0) {
+            throw new Error("Por favor, entre um valor positivo");
+        }
+
+        var carne, cerveja, refrigerante;
+        if (hours < 6) {
+            carne = (adults + children * 0.5) * 0.4;
+            cerveja = adults * 1.2;
+            refrigerante = (adults + children * 0.5) * 1.0;
+        } else {
+            carne = (adults + children * 0.5) * 0.65;
+            cerveja = adults * 2;
+            refrigerante = (adults + children * 0.5) * 1.5;
+        }
+
+        carne = carne.toFixed(2)
+        cerveja = cerveja.toFixed(2)
+        refrigerante = refrigerante.toFixed(2)
+
+        return { carne, cerveja, refrigerante };
+    },
+};
 
 const Form = {
     adults: document.querySelector("input#adults"),
@@ -56,10 +66,14 @@ const Form = {
 
         try {
             const { adults, children, hours } = Form.getValues();
-            calculateAmounts(adults, children, hours);
-
-            const results = document.querySelector(".container.results");
-            results.style.display = "block";
+            const { carne, cerveja, refrigerante } = Utils.calculateAmounts(
+                adults,
+                children,
+                hours
+            );
+            console.log("desest", carne, cerveja, refrigerante);
+            DOM.updateAmounts(carne, cerveja, refrigerante);
+            DOM.showResults();
             //
         } catch (error) {
             alert(error.message);
